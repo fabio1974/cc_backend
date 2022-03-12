@@ -4,6 +4,7 @@ const clientes = require('./routes/clientes')
 const boletos = require('./routes/boletos')
 
 
+
 const app = express();
 
 require('./security/cors')(app);
