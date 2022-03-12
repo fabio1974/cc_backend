@@ -5,19 +5,38 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node index.js"
+    "start": "node index.js",
+    "prettier-check": "prettier --check src"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
     "axios": "^0.21.4",
+    "babel-eslint": "^10.1.0",
     "bcrypt": "^5.0.1",
     "config": "^3.3.6",
     "cors": "^2.8.5",
     "debug": "^4.3.2",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-prettier": "^4.0.0",
+    "eslint-plugin-react": "^7.29.3",
     "express": "^4.17.1",
     "morgan": "^1.10.0",
-    "node-fetch": "^3.2.1"
+    "node-fetch": "^3.2.1",
+    "prettier": "^2.5.1"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest",
+      "plugin:prettier/recommended"
+    ],
+    "rules": {
+      "no-restricted-globals": "off"
+    }
+  },
+  "devDependencies": {
+    "eslint": "^8.11.0"
   }
 }

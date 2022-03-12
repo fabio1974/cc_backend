@@ -6,7 +6,6 @@ const base_url = 'https://api.iugu.com/v1/invoices?api_token=1ff25a762d28d51bd34
 
 router.get('/',async(req,res)=>{
     const url = base_url+'&limit=10';
-    //const config = {method: 'GET', headers: {Accept: 'application/json'}};
     const result = await axios.get(url)
     res.send(result.data);
 })

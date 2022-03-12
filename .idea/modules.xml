@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/cunha-backend.iml" filepath="$PROJECT_DIR$/.idea/cunha-backend.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/cc-backend.iml" filepath="$PROJECT_DIR$/.idea/cunha-backend.iml" />
     </modules>
   </component>
 </project>
