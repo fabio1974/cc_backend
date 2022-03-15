@@ -5,9 +5,18 @@ const router = express.Router();
 const base_url = 'https://api.iugu.com/v1/invoices?api_token=1ff25a762d28d51bd34863406cbb8c2b';
 
 router.get('/',async(req,res)=>{
-    const url = base_url+'&limit=10';
-    const result = await axios.get(url)
-    res.send(result.data);
+    console.log(req.query);
+    let pageSize = req.query.pageSize;
+    let page = req.query.page;
+    const url = base_url + `&start=${pageSize * page}&limit=${pageSize}`;
+    try {
+        const result = await axios.get(url)
+        res.send(result.data);
+    }catch (e) {
+        console.log(e)
+        res.status(500).send({})
+    }
+
 })
 
 router.get('/:id', async(req,res)=>{
@@ -26,11 +35,13 @@ router.post('/', (req, res) => {
 
     const body = {
         ensure_workday_due_date: true,
-        items: [{description: boleto.message, price_cents: boleto.total, quantity: 1}],
+        items: [{description: boleto.message, price_cents: (100 * boleto.total), quantity: 1}],
         email: boleto.email,
         due_date: boleto.due_date,
         customer_id: boleto.customer_id
     }
+
+    console.log(body)
 
     axios.post(base_url, body)
         .then(resp => res.send(resp.data))
