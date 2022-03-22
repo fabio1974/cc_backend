@@ -1,6 +1,7 @@
 const express = require('express');
 const axios = require("axios");
 const router = express.Router();
+const config = require('config');
 
 const base_url = `https://api.iugu.com/v1/invoices?api_token=${config.get('API_TOKEN')}`;
 
