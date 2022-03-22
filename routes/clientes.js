@@ -6,8 +6,18 @@ const base_url = 'https://api.iugu.com/v1/customers?api_token=1ff25a762d28d51bd3
 
 
 router.get('/',async(req,res)=>{
-    const result = await axios.get(base_url)
-    res.send(result.data);
+
+    let pageSize = req.query.pageSize;
+    let page = req.query.page;
+    const url = base_url + `&start=${pageSize * page}&limit=${pageSize}`;
+    try {
+        const result = await axios.get(url)
+        res.send(result.data);
+    }catch (e) {
+        console.log(e)
+        res.status(500).send({})
+    }
+
 })
 
 router.get('/:cpfCnpj', async(req,res)=>{

@@ -2,10 +2,9 @@ const express = require('express');
 const axios = require("axios");
 const router = express.Router();
 
-const base_url = 'https://api.iugu.com/v1/invoices?api_token=1ff25a762d28d51bd34863406cbb8c2b';
+const base_url = `https://api.iugu.com/v1/invoices?api_token=${config.get('API_TOKEN')}`;
 
 router.get('/',async(req,res)=>{
-    console.log(req.query);
     let pageSize = req.query.pageSize;
     let page = req.query.page;
     const url = base_url + `&start=${pageSize * page}&limit=${pageSize}`;
