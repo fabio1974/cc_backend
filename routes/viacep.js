@@ -6,7 +6,6 @@ const config = require('config');
 
 
 
-
 router.get('/:zip_code', async(req,res)=>{
     const url = `https://viacep.com.br/ws/${req.params.zip_code}/json/`;
     try {
