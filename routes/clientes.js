@@ -29,6 +29,18 @@ router.get('/:cpfCnpj', async(req,res)=>{
 
 router.post('/',async (req, res) => {
 
+    const body = {
+        email: 'fabio.barros@moveltrack.com.br',
+        name: 'Fábio Barros',
+        cpf_cnpj: '28272738880',
+        zip_code: '60824-010',
+        city: 'Fortaleza',
+        state: 'Ceara',
+        number: '555',
+        street: 'Rua 02',
+        complement: '1604-B'
+    }
+
 })
 
 router.put('/:id', async (req, res) => {

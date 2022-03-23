@@ -2,6 +2,7 @@ const express = require('express');
 
 const clientes = require('./routes/clientes')
 const boletos = require('./routes/boletos')
+const viacep = require('./routes/viacep')
 
 
 
@@ -18,4 +19,5 @@ app.listen(PORT, ()=> console.log(`Listening on port ${PORT}`));
 
 app.use('/api/clientes', clientes);
 app.use('/api/boletos', boletos);
+app.use('/api/viacep', viacep);
 
