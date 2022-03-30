@@ -29,7 +29,11 @@ router.get("/", async (req, res) => {
         xml2js.parseString(xml, (err, json) => {
           if (err) throw err;
           console.log("json", JSON.stringify(json, "", 4));
-          res.send(json.Retorno.dadosValidacao[0]);
+          if (json.Retorno.resultado[0] === "REJEITADO")
+            res.status(400).json({
+              message: json.Retorno.dadosRejeicao[0].rejeicao[0].descricao[0],
+            });
+          else res.send(json.Retorno.dadosValidacao[0]);
         });
       }
     );
