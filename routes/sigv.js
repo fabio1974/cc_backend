@@ -11,7 +11,7 @@ router.get("/", async (req, res) => {
   const url =
     "https://webservice.sigv.com.br/ws-producao/api/apiControlePatio.php?wsdl";
 
-  soap.createClient(url, function (err, client) {
+  soap.createClient(url, { encoding: "ISO-8859-1" }, function (err, client) {
     if (err) return console.log("Erro do cliente", err);
 
     client.getControlePatio(
@@ -28,7 +28,8 @@ router.get("/", async (req, res) => {
 
         xml2js.parseString(xml, (err, json) => {
           if (err) throw err;
-          console.log("json", JSON.stringify(json, "", 4));
+          console.log("xml", xml);
+          // console.log("json", JSON.stringify(json, "", 4));
           if (json.Retorno.resultado[0] === "REJEITADO")
             res.status(400).json({
               message: json.Retorno.dadosRejeicao[0].rejeicao[0].descricao[0],
