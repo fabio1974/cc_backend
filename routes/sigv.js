@@ -11,7 +11,7 @@ router.get("/", async (req, res) => {
   const url =
     "https://webservice.sigv.com.br/ws-producao/api/apiControlePatio.php?wsdl";
 
-  soap.createClient(url, { encoding: "ISO-8859-1" }, function (err, client) {
+  soap.createClient(url, function (err, client) {
     if (err) return console.log("Erro do cliente", err);
 
     client.getControlePatio(

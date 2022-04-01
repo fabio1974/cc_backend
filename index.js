@@ -1,6 +1,3 @@
-const iconv = require("iconv-lite");
-console.log(iconv.decode(">Rua Bar�o de Canind�", "ISO-8859-1"));
-
 const express = require("express");
 
 const clientes = require("./routes/clientes");
